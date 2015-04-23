@@ -1,8 +1,10 @@
-/*************************************
-  quicklook.js v1.0.0
-  2015/04/23
-  LICENSE:MIT
-*************************************/
+/*
+* quicklook.js v0.9.2
+* https://github.com/ytamai/quicklook.js
+*
+* Copyright 2015 ytamai
+* Released under the MIT license
+*/
 var quickLook=function(className,suffix){
 
 
@@ -19,29 +21,6 @@ if(!Array.prototype.indexOf){
     }
     return -1;
   };
-}
-
-function isRequired(type,test){
-  var is=type;
-  var to=typeof(test),t=test;
-  switch(to){
-    case 'object':
-    if(Array.isArray(t)){
-      to='array';
-    }
-    break;
-    case 'string':
-      if(isNumber(t)){
-        to='number';
-        t=Number(t);
-      }
-    break;
-  }
-  if(to===is){
-    return t;
-  }else{
-    return false;
-  }
 }
 
 // getter
@@ -73,7 +52,7 @@ function getByClassName(className){
 }
 function getWindowTop(){
   var scrollY=(window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
-  return isRequired('number',scrollY)+'px';
+  return scrollY+'px';
 }
 function getWindowWidth(){
   if(window.innerWidth){
@@ -141,7 +120,6 @@ function QuickLook(dom,suffix){
 
 function runQuickLook(className,suffix){
   var quickLookTargets=getByClassName(className);
-  var sfx=isRequired('string',sfx);
   for(var i=quickLookTargets.length-1;i>=0;i--){
     var QuickLooks=new QuickLook(quickLookTargets[i],suffix);
   }
