@@ -2,6 +2,11 @@
 
 Simply modal
 
+## See the sample
+
+[Sample](http://ytamai.github.io/quicklook.js/sample/sample.html)
+
+
 ## Usage
 
 ```javascript
