@@ -20,7 +20,7 @@ var AUTOPREFIXER_BROWSERS = [
 ];
 
 gulp.task('jshint', function () {
-  return gulp.src('src/**/*.js')
+  return gulp.src(['sample/**/*.js','src/**/*.js'])
     .pipe(reload({stream: true, once: true}))
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
@@ -31,17 +31,19 @@ gulp.task('serve', ['styles'], function () {
   browserSync({
     notify: false,
     logPrefix: 'WSK',
-    server: {baseDir:'src'}
+    server: {baseDir:'sample'}
   });
 
-  gulp.watch(['src/**/*.html'], reload);
-  gulp.watch(['src/**/*.{scss,css}'], ['styles', reload]);
+  gulp.watch(['sample/**/*.html'], reload);
+  gulp.watch(['sample/**/*.{scss,css}'], ['styles', reload]);
+  gulp.watch(['sample/**/*.js'], ['jshint']);
   gulp.watch(['src/**/*.js'], ['jshint']);
 });
 
 gulp.task('styles', function () {
   return gulp.src([
     'src/**/*.scss',
+    'sample/**/*.scss',
     'src/**/**/*.css'
   ])
     .pipe(sass({
@@ -49,5 +51,5 @@ gulp.task('styles', function () {
       onError: console.error.bind(console, 'Sass error:')
     }))
     .pipe(autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
-    .pipe(gulp.dest('build/'))
+    .pipe(gulp.dest('sample/'))
 });

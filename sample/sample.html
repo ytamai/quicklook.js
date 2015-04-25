@@ -3,9 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <title>SAMPLE - quicklook.js</title>
-  <script src="../src/quicklook.js"></script>
+  <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+<div class="content">
+<h1>SAMPLE - quicklook.js</h1>
 
+  <ul class="list-inline">
+    <li class="quicklook"><img src="images/quicklook-sample01.jpg" height="169" width="100" alt="sample01" /></li>
+    <li class="quicklook"><img src="images/quicklook-sample03.jpg" height="78" width="100" alt="sample03"></li>
+    <li class="quicklook"><img src="images/quicklook-sample02.jpg" height="150" width="100" alt="sample02"></li>
+    <li class="quicklook"><img src="images/quicklook-sample04.jpg" height="67" width="100" alt="sample04"></li>
+  </ul>
+</div>
+  <script src="quicklook.js"></script>
+  <script>
+  window.onload=function(){
+    quickLook('quicklook','_large');
+  }
+  </script>
 </body>
 </html>
