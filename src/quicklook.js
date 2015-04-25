@@ -1,5 +1,5 @@
 /*
-* quicklook.js v0.9.2
+* quicklook.js v0.1.3
 * https://github.com/ytamai/quicklook.js
 *
 * Copyright 2015 ytamai
@@ -40,7 +40,7 @@ function getByClassName(className){
   var searchNodes=[];
   for(var key in all){
     if(all[key].className){
-      if(all[key].className.indexOf(className)>0){
+      if(all[key].className.indexOf(className)>=0){
         searchNodes.push(all[key]);
       }
     }
