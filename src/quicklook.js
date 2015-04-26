@@ -5,10 +5,10 @@
 * Copyright 2015 ytamai
 * Released under the MIT license
 */
+'use strict';
+
 var quickLook=function(className,suffix){
 
-
-'use strict';
 if(!Array.prototype.indexOf){
   Array.prototype.indexOf=function(target,index){
     if(isNaN(index)){
@@ -38,13 +38,13 @@ function getFileName(str){
 function getByClassName(className){
   var all=document.getElementsByTagName('*');
   var searchNodes=[];
-  for(var key in all){
-    if(all[key].className){
-      if(all[key].className.indexOf(className)>=0){
-        searchNodes.push(all[key]);
+  for (var i = 0,n=all.length; i < n; i++) {
+    if(all[i].className){
+      if(all[i].className.indexOf(className)>=0){
+        searchNodes.push(all[i]);
       }
     }
-  }
+  };
   if(searchNodes.length===0){
     searchNodes.push(document.getElementById(className));
   }
@@ -84,6 +84,7 @@ function QuickLook(dom,suffix){
     var filename=getFileName(file);
     return filename.path+filename.name+suffix+filename.extention;
   }
+
   this.wrap=dom;
   var alt=document.createElement('p');
       alt.style.background='#fff';
