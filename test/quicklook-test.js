@@ -32,7 +32,4 @@ describe('mouseover',function(){
     var trgobj=document.getElementsByClassName('test-quicklook');
     expect(testobj.lastChild.innerHTML).toBe(trgobj[0].firstChild.alt);
   });
-  it('10 + 2 は 12',function(){
-    expect(add(10, 2)).toBe(5); // わざと失敗させている
-  });
 });
